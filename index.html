@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI替代论 · 反驳话术生成器</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-glow"></div>
+
+  <header>
+    <div class="header-inner">
+      <div class="logo">🤖 <span>反驳生成器</span></div>
+      <p class="tagline">当你老板又说"AI要取代你们"的时候</p>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <h1>AI完全能替代人类工作？</h1>
+      <p class="hero-sub">选择你的职业，一键生成有理有据（夹带私货）的反驳话术</p>
+    </section>
+
+    <!-- Job Selector -->
+    <section class="job-section">
+      <h2>选择你的工种</h2>
+      <div class="job-grid" id="jobGrid"></div>
+    </section>
+
+    <!-- Tone Selector -->
+    <section class="tone-section" id="toneSection" style="display:none">
+      <h2>选择话术风格</h2>
+      <div class="tone-options">
+        <button class="tone-btn active" data-tone="professional" onclick="selectTone(this,'professional')">🎩 专业严肃</button>
+        <button class="tone-btn" data-tone="sarcastic" onclick="selectTone(this,'sarcastic')">😏 阴阳怪气</button>
+        <button class="tone-btn" data-tone="dark" onclick="selectTone(this,'dark')">🖤 黑色幽默</button>
+        <button class="tone-btn" data-tone="mixed" onclick="selectTone(this,'mixed')">🎭 混合双打</button>
+      </div>
+    </section>
+
+    <!-- Generate Button -->
+    <section class="generate-section" id="generateSection" style="display:none">
+      <button class="generate-btn" id="generateBtn" onclick="generate()">
+        <span class="btn-icon">⚡</span>
+        <span class="btn-text">生成反驳话术</span>
+      </button>
+    </section>
+
+    <!-- Output -->
+    <section class="output-section" id="outputSection" style="display:none">
+      <div class="output-card">
+        <div class="output-header">
+          <div class="output-meta" id="outputMeta"></div>
+          <button class="copy-btn" onclick="copyAll()" id="copyBtn">📋 复制全文</button>
+        </div>
+        <div class="output-content" id="outputContent"></div>
+        <div class="output-footer">
+          <button class="regen-btn" onclick="generate()">🔄 换一批</button>
+          <button class="share-btn" onclick="shareCard()">📤 生成卡片</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Share Card Modal -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+      <div class="modal-card" id="shareCard" onclick="event.stopPropagation()">
+        <div class="modal-header">
+          <span class="modal-logo">🤖 AI替代论反驳话术</span>
+          <button class="modal-close" onclick="closeModal()">✕</button>
+        </div>
+        <div class="modal-body" id="modalBody"></div>
+        <div class="modal-footer">antigravity · AI反驳生成器</div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>💡 本工具纯属娱乐，所有话术仅供参考。如被老板开除，概不负责。</p>
+    <p style="margin-top:6px;opacity:.5;font-size:12px;">（但说真的，AI真的取代不了你）</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
